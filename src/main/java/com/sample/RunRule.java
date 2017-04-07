@@ -17,7 +17,7 @@ public class RunRule {
 			kSession.insert(trade);
 			kSession.fireAllRules();
 			
-			System.out.println(trade.getSecurity()+"Hi");
+			System.out.println(trade.getSecurity()+" "+"Hi");
 		
 		} catch (Exception e) {
 			e.printStackTrace();		}

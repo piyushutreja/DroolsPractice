@@ -1,13 +1,32 @@
 package rules
 
 import com.sample.Trade;
- 
+
+global Trade  trade1;
+
+function double getTimeDiff(double t1,double t2)
+{
+   return t1-t2;
+}
 dialect "java"
  
 rule "TradeRule"
  
     when
-        trade:Trade (getUser() == 'piyush' )
+        trade:Trade (getUser() == 'piyush'|| getUser()=='test')
+       
+     
     then
+        
         trade.setSecurity('First Name is ' + trade.getUser());
+end
+
+
+rule "WashTrade"
+
+when 
+	trade:Trade (getUser()== 'piyush'||getTimeDiff(1.0,1.0)==1.00)
+	then 
+	trade.setSecurity("Washtrader Name is"+ trade.getUser());
+	
 end
