@@ -1,0 +1,13 @@
+package rules
+
+import com.sample.Trade;
+ 
+dialect "java"
+ 
+rule "TradeRule"
+ 
+    when
+        trade:Trade (getUser() == 'piyush' )
+    then
+        trade.setSecurity('First Name is ' + trade.getUser());
+end
